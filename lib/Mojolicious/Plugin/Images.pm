@@ -8,7 +8,7 @@ use Mojolicious::Plugin::Images::Service::Dest;
 use Mojolicious::Plugin::Images::Service::Origin;
 use Mojolicious::Plugin::Images::Util ':all';
 
-our $VERSION = '0.001';    # TRIAL VERSION
+our $VERSION = '0.002';    # TRIAL VERSION
 
 sub _class($from) {
   my $ns = "Mojolicious::Plugin::Images::Service";
@@ -65,7 +65,7 @@ Mojolicious::Plugin::Images - easy and powerful image manipulation for Mojolicio
 
 =head1 VERSION
 
-version 0.001
+version 0.002
 
 =head1 SYNOPSIS
 
@@ -112,6 +112,8 @@ By the way. I liked signatures feature so much, so I decided to made 5.20.0 as a
 
 Registers a plugin with options. If options is omitted, plugin will try to load them from
 configaration via b<plugin_images> key
+
+=for HTML <a href="https://travis-ci.org/alexbyk/mojo-images"><img src="https://travis-ci.org/alexbyk/mojo-images.svg?branch=master"></a>
 
 =head1 AUTHOR
 

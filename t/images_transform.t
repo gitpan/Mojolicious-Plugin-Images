@@ -1,6 +1,4 @@
-use Mojo::Base -base;
-use 5.20.0;
-use experimental 'signatures';
+use Mojo::Base -strict;
 
 use Test::More;
 use Mojolicious::Lite;
@@ -30,9 +28,9 @@ is $foo->namespace, 'MyApp';
 @Outer::Trans::ISA = ('Mojolicious::Plugin::Images::Transformer');
 
 monkey_patch('MyApp::Trans',
-  trans1000 => sub($t) { $t->image->scale(xpixels => 1000) });
+  trans1000 => sub { shift->image->scale(xpixels => 1000) });
 monkey_patch('Outer::Trans',
-  trans99 => sub($t) { $t->image->scale(xpixels => 99) });
+  trans99 => sub { shift->image->scale(xpixels => 99) });
 
 $app = MyApp::->new();
 $app->plugin(
@@ -45,7 +43,7 @@ $app->plugin(
       from      => 'img1000'
     },
     img199 => {
-      transform => sub($t) { $t->image->scale(xpixels => 199) },
+      transform => sub { shift->image->scale(xpixels => 199) },
       dir       => $tmpdir,
       from      => 'img1000'
     },

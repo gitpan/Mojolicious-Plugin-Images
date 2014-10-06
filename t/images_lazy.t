@@ -1,6 +1,4 @@
-use Mojo::Base -base;
-use 5.20.0;
-use experimental 'signatures';
+use Mojo::Base -strict;
 
 use Mojolicious::Lite;
 use Test::More;
@@ -16,8 +14,8 @@ my $options = {
   dest => {
     dir       => "$tmpdir/dest/images",
     from      => 'origin',
-    transform => sub($t) {
-      $t->image->scale(xpixels => 69, ypixels => 69, type => 'nonprop');
+    transform => sub {
+      shift->image->scale(xpixels => 69, ypixels => 69, type => 'nonprop');
     }
   },
 
@@ -73,5 +71,3 @@ is $img->getheight, 333, "right height";
 
 
 done_testing;
-
-
