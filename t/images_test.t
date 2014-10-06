@@ -1,4 +1,6 @@
 use Mojo::Base -strict;
+BEGIN { $ENV{MOJO_MODE} = 'testing' }
+
 use Test::More;
 use Mojolicious::Plugin::Images::Test ':all';
 

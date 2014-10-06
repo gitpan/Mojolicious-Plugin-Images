@@ -1,6 +1,5 @@
 use Mojo::Base -strict;
-use 5.20.0;
-use experimental 'signatures';
+BEGIN { $ENV{MOJO_MODE} = 'testing' }
 
 use Test::More;
 use Mojolicious;
@@ -21,8 +20,8 @@ my $options = {
     suffix     => '-dest',
     url_prefix => '/media',
     from       => 'origin',
-    transform  => sub($t) {
-      $t->image->scale(xpixels => 69, ypixels => 69, type => 'nonprop');
+    transform  => sub {
+      shift->image->scale(xpixels => 69, ypixels => 69, type => 'nonprop');
     }
   }
 };
@@ -91,7 +90,7 @@ ok $origin->exists($id),   "already exists";
 isa_ok $origin->read($id), 'Imager', 'Right class';
 is $origin->url($id),      "/media/$id-origin.jpg";
 
-my $img = $origin->read($id);
+$img = $origin->read($id);
 is $img->getwidth,  333, "right width";
 is $img->getheight, 444, "right height";
 done_testing;

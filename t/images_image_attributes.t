@@ -1,4 +1,6 @@
 use Mojo::Base -strict;
+BEGIN { $ENV{MOJO_MODE} = 'testing' }
+
 use Test::More;
 use Mojolicious;
 use Mojolicious::Plugin::Images::Test ':all';
@@ -53,7 +55,7 @@ $second->upload($id, test_upload(100, 100));
 # we read png, but second read will read jpeg and tag wan't be present
 my $img = $third->read($id);
 is $img->tags(name => 'png_title'), 'Foo';
-my $img = $third->read($id);
+$img = $third->read($id);
 is $img->tags(name => 'png_title'), undef;
 
 # todo: test read options

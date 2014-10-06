@@ -1,6 +1,7 @@
 use Mojo::Base -strict;
 
 BEGIN {
+  $ENV{MOJO_MODE}                  = 'testing';
   $ENV{IMAGES_ALLOW_INSECURE_IDS}  = 1;
   $ENV{IMAGES_ALLOW_INSECURE_DIRS} = 1;
 }

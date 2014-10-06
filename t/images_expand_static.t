@@ -1,8 +1,9 @@
 use Mojo::Base -strict;
+BEGIN { $ENV{MOJO_MODE} = 'testing' }
+
 use Test::More;
 use Mojolicious;
 use Mojolicious::Plugin::Images::Util ':all';
-
 
 my $app      = Mojolicious->new;
 my $paths    = $app->static->paths;

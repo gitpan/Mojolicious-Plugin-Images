@@ -1,9 +1,10 @@
 use Mojo::Base -strict;
+BEGIN { $ENV{MOJO_MODE} = 'testing' }
+
 use Test::More;
 use Mojolicious;
 use Mojolicious::Plugin::Images::Util ':all';
 use IO::All;
-
 
 my $app  = Mojolicious->new;
 my $home = $app->home;
