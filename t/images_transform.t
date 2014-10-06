@@ -5,7 +5,7 @@ use Test::More;
 use Mojolicious::Lite;
 use Mojolicious::Plugin::Images::Test ':all';
 use Imager;
-use IO::All 'tmpdir';
+use IO::All;
 use Mojo::Util 'monkey_patch';
 
 my $tmpdir = io()->tmpdir . "/images";

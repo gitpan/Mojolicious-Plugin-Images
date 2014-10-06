@@ -8,7 +8,7 @@ use Mojo::Util 'steady_time';
 use Imager;
 use IO::All 'tmpdir';
 
-my $tmpdir  = io()->tmpdir;
+my $tmpdir  = io()->tmpdir . "/images";
 my $options = {
   origin => {
     dir        => "$tmpdir/images/media/",

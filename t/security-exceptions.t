@@ -12,7 +12,7 @@ use Mojolicious;
 use Mojolicious::Plugin::Images::Test ':all';
 use Mojolicious::Plugin::Images::Util ':all';
 
-my $tmpdir  = io()->tmpdir;
+my $tmpdir  = io()->tmpdir . "/images";
 my $id      = uniq_id;
 my $options = {first => {dir => $tmpdir}};
 
