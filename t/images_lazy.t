@@ -8,7 +8,7 @@ use Mojolicious::Plugin::Images::Test ':all';
 use Imager;
 use IO::All;
 
-my $tmpdir  = io()->tmpdir . "/images";
+my $tmpdir  = io->tmpdir . "/images_tmp";
 my $options = {
   origin =>
     {dir => "$tmpdir/origin/images", suffix => '-origin', url_prefix => undef},

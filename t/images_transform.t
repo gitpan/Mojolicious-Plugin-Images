@@ -8,7 +8,7 @@ use Imager;
 use IO::All;
 use Mojo::Util 'monkey_patch';
 
-my $tmpdir = io()->tmpdir . "/images";
+my $tmpdir = io->tmpdir . "/images_tmp";
 
 # namespace
 @MyApp::ISA = ('Mojolicious::Lite');

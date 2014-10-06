@@ -7,13 +7,13 @@ use Mojolicious::Plugin::Images::Test ':all';
 use Mojolicious::Plugin::Images::Util ':all';
 use IO::All 'tmpdir';
 
-my $tmp_dir = io->tmpdir . "/images";
+my $tmpdir = io()->tmpdir . "/images_tmp";
 my ($r_cb_count, $w_cb_count);
 my $options = {
   first => {},
   second =>
-    {dir => $tmp_dir, write_options => {png_title => 'Foo', type => 'png',}},
-  third => {from => 'second', dir => $tmp_dir,},
+    {dir => $tmpdir, write_options => {png_title => 'Foo', type => 'png',}},
+  third => {from => 'second', dir => $tmpdir,},
 };
 
 my $app = Mojolicious->new;

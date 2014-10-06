@@ -8,7 +8,7 @@ use Mojolicious::Plugin::Images::Service::Dest;
 use Mojolicious::Plugin::Images::Service::Origin;
 use Mojolicious::Plugin::Images::Util ':all';
 
-our $VERSION = '0.004';    # TRIAL VERSION
+our $VERSION = '0.005';    # TRIAL VERSION
 
 sub _class($from) {
   my $ns = "Mojolicious::Plugin::Images::Service";
@@ -65,7 +65,7 @@ Mojolicious::Plugin::Images - easy and powerful image manipulation for Mojolicio
 
 =head1 VERSION
 
-version 0.004
+version 0.005
 
 =head1 SYNOPSIS
 

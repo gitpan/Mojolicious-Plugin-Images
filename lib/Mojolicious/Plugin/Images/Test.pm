@@ -60,7 +60,7 @@ Mojolicious::Plugin::Images::Test
 
 =head1 VERSION
 
-version 0.004
+version 0.005
 
 =head1 SYNOPSIS
 
