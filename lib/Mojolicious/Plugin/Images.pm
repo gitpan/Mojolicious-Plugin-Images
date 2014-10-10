@@ -8,7 +8,7 @@ use Mojolicious::Plugin::Images::Service::Dest;
 use Mojolicious::Plugin::Images::Service::Origin;
 use Mojolicious::Plugin::Images::Util ':all';
 
-our $VERSION = '0.005';    # TRIAL VERSION
+our $VERSION = '0.006';    # VERSION
 
 sub _class($from) {
   my $ns = "Mojolicious::Plugin::Images::Service";
@@ -20,7 +20,9 @@ sub _defaults {
 }
 
 sub register($self, $app, $options) {
-  $options = {%{$app->config('plugin_images')}} unless keys %$options;
+  $options = {%{$app->config('plugin_images') || {}}} unless keys %$options;
+  plugin_log($app, "Plugin is loaded but neither options no config provided")
+    unless keys %$options;
 
   foreach my $moniker (keys %$options) {
 
@@ -65,7 +67,7 @@ Mojolicious::Plugin::Images - easy and powerful image manipulation for Mojolicio
 
 =head1 VERSION
 
-version 0.005
+version 0.006
 
 =head1 SYNOPSIS
 
@@ -111,7 +113,7 @@ By the way. I liked signatures feature so much, so I decided to made 5.20.0 as a
 =head2 register a plugin
 
 Registers a plugin with options. If options is omitted, plugin will try to load them from
-configaration via b<plugin_images> key
+configuration via b<plugin_images> key
 
 =for HTML <a href="https://travis-ci.org/alexbyk/mojo-images"><img src="https://travis-ci.org/alexbyk/mojo-images.svg?branch=master"></a>
 

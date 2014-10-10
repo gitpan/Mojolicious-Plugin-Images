@@ -41,7 +41,7 @@
          }
       }
    },
-   "release_status" : "testing",
+   "release_status" : "stable",
    "resources" : {
       "bugtracker" : {
          "web" : "http://github.com/alexbyk/mojo-images/issues"
@@ -50,6 +50,6 @@
          "web" : "http://github.com/alexbyk/mojo-images"
       }
    },
-   "version" : "0.005"
+   "version" : "0.006"
 }
 

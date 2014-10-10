@@ -1,6 +1,6 @@
 # NAME [![Build Status](https://travis-ci.org/alexbyk/mojo-images.svg?branch=master)](https://travis-ci.org/alexbyk/mojo-images)
 
-Mojolicious::Plugin::Images - easy and powerful image manipulation for Mojolicious
+Mojolicious::Plugin::Images - easy and powerful image manipulation services for Mojolicious
 
 # VERSION
 
@@ -36,6 +36,9 @@ what path to provide for nginx, for example.
 
 This nifty and amazing plugin helps to orginize images in your application. It provides very simple but poweful features
 even without coding.
+
+Consider it as services in Angular js - it has the similar goals
+
 Can be used in small application to generate thumbnails and so on and
 in poweful services which works a lot with images as well.
 
@@ -55,7 +58,7 @@ By the way. I liked signatures feature so much, so I decided to made 5.20.0 as a
 ## register a plugin
 
 Registers a plugin with options. If options is omitted, plugin will try to load them from
-configaration via b<plugin\_images> key
+configuration via b<plugin\_images> key
 
 # AUTHOR
 
