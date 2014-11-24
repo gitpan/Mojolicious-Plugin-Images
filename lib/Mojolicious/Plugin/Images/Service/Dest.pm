@@ -28,7 +28,7 @@ Mojolicious::Plugin::Images::Service::Dest
 
 =head1 VERSION
 
-version 0.006
+version 0.007
 
 =head1 SYNOPSIS
 

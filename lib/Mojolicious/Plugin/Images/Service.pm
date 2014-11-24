@@ -80,13 +80,20 @@ sub _trans($self, $id, $img) {
   return $new;
 }
 
-sub write($self, $id, $img) {
+sub abs_path($self, $id) {
   my $canonpath = $self->canonpath($id);
-  my $dir       = io->file($canonpath)->filepath;
-  my $new       = _trans($self, $id, $img);
+  return $canonpath if io($canonpath)->is_absolute;
+
+  return $self->controller->app->home->rel_file($canonpath);
+}
+
+sub write($self, $id, $img) {
+  my $abs_path = $self->abs_path($id);
+  my $dir      = io->file($abs_path)->filepath;
+  my $new      = _trans($self, $id, $img);
 
   io->dir($dir)->mkpath unless io->dir($dir)->exists;
-  $new->write(file => $canonpath, %{$self->write_options || {}})
+  $new->write(file => $abs_path, %{$self->write_options || {}})
     or die Imager::->errstr;
 }
 
@@ -104,7 +111,7 @@ Mojolicious::Plugin::Images::Service
 
 =head1 VERSION
 
-version 0.006
+version 0.007
 
 =head1 SYNOPSIS
 
@@ -163,6 +170,10 @@ writes an image
 =head2 url ($self, $id) 
 
 returns url of an image
+
+=head2 abs_path ($self, $id) 
+
+If path is absolute, return it. Returns absolute path to app->home otherwise
 
 =head2 canonpath ($self, $id) 
 

@@ -4,7 +4,7 @@
       "alexbyk <alexbyk@cpan.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 5.020, CPAN::Meta::Converter version 2.140640",
+   "generated_by" : "Dist::Zilla version 5.020, CPAN::Meta::Converter version 2.142690",
    "license" : [
       "perl_5"
    ],
@@ -41,7 +41,7 @@
          }
       }
    },
-   "release_status" : "stable",
+   "release_status" : "testing",
    "resources" : {
       "bugtracker" : {
          "web" : "http://github.com/alexbyk/mojo-images/issues"
@@ -50,6 +50,6 @@
          "web" : "http://github.com/alexbyk/mojo-images"
       }
    },
-   "version" : "0.006"
+   "version" : "0.007"
 }
 

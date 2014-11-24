@@ -46,6 +46,17 @@ $c = $app->build_controller;
 
 is $c->images->foo->dir, 'public/images', "right dir";
 
+
+# abs_path
+$app = Mojolicious->new;
+$app->config(
+  plugin_images => {foo => {dir => 'rel'}, bar => {dir => '/tmp/abs'}});
+$app->plugin('Images');
+$c = $app->build_controller;
+$app->home->parse('/tmp');
+is $c->images->foo->abs_path(33), '/tmp/rel/33-foo.jpg', "right path";
+is $c->images->bar->abs_path(33), '/tmp/abs/33-bar.jpg', "right path";
+
 # no config no options
 $app = Mojolicious->new;
 $app->config();
