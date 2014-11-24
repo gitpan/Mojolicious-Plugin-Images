@@ -21,4 +21,4 @@ requires:
 resources:
   bugtracker: http://github.com/alexbyk/mojo-images/issues
   repository: http://github.com/alexbyk/mojo-images
-version: '0.007'
+version: '0.008'

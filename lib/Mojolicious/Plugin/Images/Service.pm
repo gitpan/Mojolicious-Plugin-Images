@@ -31,12 +31,12 @@ sub canonpath($self, $id) {
 }
 
 sub exists ($self, $id) {
-  io($self->canonpath($id))->exists;
+  io($self->abs_path($id))->exists;
 }
 
 sub read ($self, $id) {
   Imager::->new(
-    file => $self->canonpath(check_id($id)),
+    file => $self->abs_path(check_id($id)),
     %{$self->read_options || {}}
   );
 }
@@ -111,7 +111,7 @@ Mojolicious::Plugin::Images::Service
 
 =head1 VERSION
 
-version 0.007
+version 0.008
 
 =head1 SYNOPSIS
 
